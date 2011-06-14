@@ -35,8 +35,9 @@ class Image(Orderable):
                             width_field='src_width')
     src_height = models.PositiveSmallIntegerField(editable=False, null=True)
     src_width = models.PositiveSmallIntegerField(editable=False, null=True)
-    title = models.CharField(max_length=255, blank=True)
-    alt = models.TextField(blank=True)
+    title = models.CharField(max_length=255, blank=False)
+    description = models.TextField(blank=True)
+    image_alt = models.TextField(blank=True)
 
     def __unicode__(self):
-        return self.title or self.alt or str(self.pk)
+        return self.title or self.image_alt or str(self.pk)
